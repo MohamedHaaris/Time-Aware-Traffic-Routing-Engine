@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+   redis:
+      image: redis:7
+      container_name: traffic-redis
+      ports:
+      - 6379:6379
+
+   postgres:
+      image: postgres:15
+      container_name: routing-postgres
+      environment:
+         POSTGRES_DB: routing
+         POSTGRES_USER: admin
+         POSTGRES_PASSWORD: admin
+         PGTZ: Asia/Kolkata
+      ports:
+      - 5432:5432
